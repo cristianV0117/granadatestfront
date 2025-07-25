@@ -1,2 +1,2 @@
-[build]
-nodeVersion = "20"
+[nixpacks]
+node_version = "22.12.0"
