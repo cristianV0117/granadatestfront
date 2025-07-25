@@ -1,1 +1,80 @@
 /* You can add global styles to this file, and also import other style files */
+// 1. Fondo global
+body {
+  background-color: #212529;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+}
+
+// 2. Personaliza Bootstrap
+.btn-primary {
+  background-color: #8e44ad;
+  border-color: #8e44ad;
+}
+.btn-primary:hover {
+  background-color: #732d91;
+  border-color: #732d91;
+}
+
+// 3. Inputs y formularios
+.form-control {
+  background-color: #343a40;
+  color: #fff;
+  border: 1px solid #495057;
+}
+.form-control::placeholder {
+  color: #ced4da;
+}
+
+// 4. Tarjetas
+.card {
+  background-color: #2c3034;
+  border-color: #444;
+}
+.card-header {
+  background-color: #343a40;
+  border-bottom: 1px solid #495057;
+  color: #fff;
+}
+
+// 5. Tablas
+.table {
+  color: #fff;
+}
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #2b2f32;
+}
+.table-dark {
+  background-color: #343a40;
+  color: #fff;
+}
+
+// 6. Navbar
+.navbar {
+  background-color: #1c1f23 !important;
+}
+.nav-link {
+  color: #ffffff !important;
+}
+.nav-link.active, .nav-link:hover {
+  color: #8e44ad !important;
+}
+
+input.form-control,
+input.form-control:focus,
+input.form-control:active {
+  background-color: #343a40; // gris oscuro
+  color: #fff;
+  border: 1px solid #6c757d;
+}
+
+input.form-control::placeholder {
+  color: #adb5bd;
+}
+
+.page-item.active .page-link {
+  background-color: #7c3aed !important; // morado
+  border-color: #7c3aed;
+  color: #fff;
+}
