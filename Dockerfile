@@ -12,10 +12,8 @@ RUN npm run build --output-path=dist
 # Etapa 2: Servir con NGINX
 FROM nginx:stable-alpine
 
-# Copia el build generado al directorio público de NGINX
 COPY --from=builder /app/dist/granadatestfront /usr/share/nginx/html
 
-# Copia configuración básica de nginx (opcional)
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
