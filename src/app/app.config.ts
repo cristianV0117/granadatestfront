@@ -16,7 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideApollo(() => {
       const httpLink = inject(HttpLink);
       return {
-        link: httpLink.create({ uri: 'http://localhost/graphql' }),
+        link: httpLink.create({ uri: 'https://granadatest-production.up.railway.app/graphql' }),
         cache: new InMemoryCache(),
       };
     }),
