@@ -13,7 +13,7 @@ RUN npm run build --output-path=dist
 FROM nginx:stable-alpine
 
 # Copia el build generado al directorio público de NGINX
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist/granadatestfront /usr/share/nginx/html
 
 # Copia configuración básica de nginx (opcional)
 COPY nginx.conf /etc/nginx/conf.d/default.conf
