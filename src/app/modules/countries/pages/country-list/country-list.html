@@ -5,45 +5,52 @@
     </div>
     <div class="card-body">
       <form
-        (submit)="fetchCountries(); $event.preventDefault()"
-        class="row gy-3 gx-3 align-items-center mb-4"
-      >
-        <div class="col-md-auto">
-          <label for="username" class="form-label text-light mb-0">Tu nombre:</label>
+      #form="ngForm"
+      (ngSubmit)="form.valid && fetchCountries()"
+      class="row gy-3 gx-3 align-items-center mb-4"
+    >
+      <div class="col-md-auto">
+        <label for="username" class="form-label text-light mb-0">Tu nombre:</label>
+      </div>
+      <div class="col-md-3">
+        <input
+          id="username"
+          name="username"
+          [(ngModel)]="username"
+          class="form-control"
+          placeholder="pepe..."
+          required
+          #usernameRef="ngModel"
+        />
+        <label class="text-danger" *ngIf="usernameRef.invalid && form.submitted">
+          El nombre es obligatorio.
+        </label>
+      </div>
+      <div class="col-md-auto">
+        <label for="limit" class="form-label text-light mb-0">¿Cuántos países quieres consultar?</label>
+      </div>
+      <div class="col-md-2">
+        <div class="text-danger mt-1" *ngIf="limitRef.invalid && form.submitted">
+          Ingresa un número entre 1 y 50.
         </div>
-        <div class="col-md-3">
-          <input
-            id="username"
-            class="form-control"
-            [(ngModel)]="username"
-            name="username"
-            placeholder="ccvasquezo"
-            required
-          />
-        </div>
-
-        <div class="col-md-auto">
-          <label for="limit" class="form-label text-light mb-0">¿Cuántos países quieres consultar?</label>
-        </div>
-        <div class="col-md-2">
-          <input
-            id="limit"
-            type="number"
-            class="form-control"
-            [(ngModel)]="limit"
-            name="limit"
-            min="1"
-            max="50"
-            required
-          />
-        </div>
-
-        <div class="col-md-auto">
-          <button type="submit" class="btn btn-primary">
-            Consultar
-          </button>
-        </div>
-      </form>
+        <input
+          id="limit"
+          name="limit"
+          type="number"
+          [(ngModel)]="limit"
+          class="form-control"
+          min="1"
+          max="50"
+          required
+          #limitRef="ngModel"
+        />
+      </div>
+      <div class="col-md-auto">
+        <button type="submit" class="btn btn-primary">
+          Consultar
+        </button>
+      </div>
+    </form>
     </div>
   </div>
 </div>
@@ -71,7 +78,7 @@
         <tr *ngFor="let c of countries()">
           <td>{{ c.name }}</td>
           <td>{{ c.area }}</td>
-          <td>{{ c.population }}</td>
+          <td>{{ c.population | number: '1.0' }}</td>
           <td>{{ c.density | number: '1.2-2' }}</td>
         </tr>
       </tbody>

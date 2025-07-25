@@ -19,3 +19,16 @@ export const GET_COUNTRIES = gql`
     }
   }
 `;
+
+export const GET_LOGS = gql`
+  query GetLogs($start_date: String, $end_date: String) {
+    getLogs(start_date: $start_date, end_date: $end_date) {
+      id
+      username
+      request_timestamp
+      num_countries_returned
+      countries_details
+      created_at
+    }
+  }
+`;
