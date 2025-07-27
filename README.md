@@ -1,59 +1,64 @@
-# Granadatestfront
+# 🌍 GranadaTest Frontend - Angular App - Cristian Vasquez
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.3.
+Frontend para el reto técnico FullStack de **Granada SAS**, desarrollado con **Angular**, **SCSS**, **Bootstrap 5** y desplegado en **Railway**. Este frontend consume un backend en Laravel vía **GraphQL** para consultar países con mayor densidad demográfica y gestionar logs de uso.
 
-## Development server
+---
 
-To start a local development server, run:
+## 📦 Tecnologías usadas
+
+- **Angular 20**
+- **SCSS**
+- **Bootstrap 5**
+- **GraphQL**
+- **RxJS / NgRx (Store y efectos)**
+- **Docker + NGINX**
+- **Railway (deploy frontend)**
+- **GitHub Actions (build y release)**
+
+---
+
+## ⚙️ Funcionalidad
+
+### Módulo 1: Consulta de países con mayor densidad
+- Captura un **nombre de usuario** y el **número de países a consultar**.
+- Solicita al backend vía GraphQL los países con mayor densidad poblacional.
+- Muestra los resultados paginados (10 por página, hasta 50 países).
+- Guarda automáticamente un **log** de cada consulta (username, timestamp, países retornados, etc.).
+
+### Módulo 2: Gestión de logs
+- Consulta los registros de uso de forma paginada.
+- Permite filtrar por **rango de fechas**.
+- Permite **editar el nombre de usuario** de un log.
+- Permite **eliminar registros individuales**.
+
+---
+
+## 🧱 Arquitectura
+
+- **Componentes modulares y reutilizables**
+- **Alta cohesión** y división clara por feature.
+- Uso de **NgRx** para el manejo del estado de país y logs.
+- Peticiones a GraphQL centralizadas por servicios.
+- Estilos organizados por componentes, escritos en SCSS.
+
+---
+
+## 🚀 Despliegue
+
+### 🌐 Producción
+- Frontend desplegado en: [https://granadatestfront-production.up.railway.app](https://granadatestfront-production.up.railway.app)
+- Se comunica con el backend Laravel GraphQL alojado en Railway.
+
+### 📄 Configuración para despliegue (Railway)
+
+Este proyecto usa `Dockerfile` para construir y servir la app con NGINX.
+
+#### Estructura esperada de producción:
+
+- `Dockerfile` que construye Angular y copia `dist/browser` a NGINX
+- `nginx.conf` personalizado para manejar rutas Angular correctamente
 
 ```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# build local:
+docker build -t angular-front .
+docker run -p 8080:80 angular-front
