@@ -112,4 +112,16 @@ export class LogsList {
         error: () => this.loading.set(false),
       });
   }
+  
+  parseCountries(details: string): { name: string; density: number }[] {
+    try {
+      const parsed = JSON.parse(details);
+      return Object.values(parsed).map((entry: any) => ({
+        name: entry.name,
+        density: entry.density,
+      }));
+    } catch {
+      return [];
+    }
+  }
 }

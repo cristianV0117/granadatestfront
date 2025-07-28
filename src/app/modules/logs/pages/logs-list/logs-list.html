@@ -31,7 +31,8 @@
           <th>🆔</th>
           <th>👤 Usuario</th>
           <th>📅 Fecha</th>
-          <th>🌐 Países consultados</th>
+          <th>🌐 Numero de Países consultados</th>
+          <th>🌍 Detalles de los paises consultados</th>
           <th>⚙️ Acciones</th>
         </tr>
       </thead>
@@ -47,6 +48,11 @@
 
           <td>{{ log.request_timestamp }}</td>
           <td>{{ log.num_countries_returned }}</td>
+          <td class="text-start small">
+            <ng-container *ngFor="let country of parseCountries(log.countries_details)">
+              • {{ country.name }} ({{ country.density | number: '1.0-2' }})<br />
+            </ng-container>
+          </td>
           <td>
             <!-- Botón editar -->
             <button
