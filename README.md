@@ -1,6 +1,6 @@
 # 🌍 GranadaTest Frontend - Angular App - Cristian Vasquez
 
-Frontend para el reto técnico FullStack de **Granada SAS**, desarrollado con **Angular**, **SCSS**, **Bootstrap 5** y desplegado en **Railway**. Este frontend consume un backend en Laravel vía **GraphQL** para consultar países con mayor densidad demográfica y gestionar logs de uso.
+Frontend para el reto técnico FullStack de **Granada**, desarrollado con **Angular**, **SCSS**, **Bootstrap 5** y desplegado en **Railway**. Este frontend consume un backend en Laravel vía **GraphQL** para consultar países con mayor densidad demográfica y gestionar logs de uso.
 
 ---
 
